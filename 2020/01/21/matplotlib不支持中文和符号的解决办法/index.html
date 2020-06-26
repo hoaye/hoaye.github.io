@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Monetking">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="Python3,matplotlib,matplotlib中文,matplotlib符号" />
+
+
+<meta name="description" content="现象中文乱码 和 - 负号显示为方块
+报错类型1Mac UserWarning: findfont: Font family ['SimHei'] not found
+
+产生原因：matplot..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    matplotlib不支持中文和符号的解决办法 |
+    
+    Monetking
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Monetking" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66480376" charset="UTF-8"></script>
+
+    
+
+</head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Monetking'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        Monetking</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/移动端/"><i class="fa "></i>
+                                移动端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/音视频/"><i class="fa "></i>
+                                音视频</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/综合/"><i class="fa "></i>
+                                综合</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/故障总结/"><i class="fa "></i>
+                                故障总结</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="matplotlib不支持中文和符号的解决办法">
+            
+            matplotlib不支持中文和符号的解决办法
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E6%95%85%E9%9A%9C%E6%80%BB%E7%BB%93/">故障总结</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/Python3/" rel="tag">Python3</a> <a class="tag-link" href="/tags/matplotlib/" rel="tag">matplotlib</a> <a class="tag-link" href="/tags/matplotlib%E4%B8%AD%E6%96%87/" rel="tag">matplotlib中文</a> <a class="tag-link" href="/tags/matplotlib%E7%AC%A6%E5%8F%B7/" rel="tag">matplotlib符号</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/01/21</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>中文乱码 和 <strong><em>-</em></strong> 负号显示为方块</p>
+<h2 id="报错类型"><a href="#报错类型" class="headerlink" title="报错类型"></a>报错类型</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mac UserWarning: findfont: Font family [<span class="string">'SimHei'</span>] not found</span><br></pre></td></tr></table></figure>
+
+<p>产生原因：<a href="https://github.com/matplotlib/matplotlib" target="_blank" rel="noopener">matplotlib: plotting with Python</a> 默认不支持中文字符和符号，缺少 <strong><em>SimHei</em></strong> 字体.</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="1、下载-SimHei-字体"><a href="#1、下载-SimHei-字体" class="headerlink" title="1、下载 SimHei 字体"></a>1、下载 <strong><em>SimHei</em></strong> 字体</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">地址：https:<span class="comment">//www.fontpalace.com/font-download/SimHei/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、查找字体存在的目录"><a href="#2、查找字体存在的目录" class="headerlink" title="2、查找字体存在的目录"></a>2、查找字体存在的目录</h3><h4 id="2-1-进入Python3环境"><a href="#2-1-进入Python3环境" class="headerlink" title="2.1 进入Python3环境"></a>2.1 进入Python3环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~: python3</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-import-matplotlib库并打印路径"><a href="#2-2-import-matplotlib库并打印路径" class="headerlink" title="2.2 import matplotlib库并打印路径"></a>2.2 import matplotlib库并打印路径</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">3.7</span><span class="number">.3</span> (default, Nov <span class="number">15</span> <span class="number">2019</span>, <span class="number">04</span>:<span class="number">04</span>:<span class="number">52</span>)</span><br><span class="line">[Clang <span class="number">11.0</span><span class="number">.0</span> (clang<span class="number">-1100.0</span><span class="number">.33</span><span class="number">.16</span>)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>matplotlib.matplotlib_fname()</span><br><span class="line"><span class="string">'/Users/mk/Library/Python/3.7/lib/python/site-packages/matplotlib/mpl-data/matplotlibrc'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>复制路径 <strong><em>/Users/mk/Library/Python/3.7/lib/python/site-packages/matplotlib/mpl-data/matplotlibrc</em></strong> 到剪切板</p>
+<h4 id="2-3-获取字体存放路径"><a href="#2-3-获取字体存放路径" class="headerlink" title="2.3 获取字体存放路径"></a>2.3 获取字体存放路径</h4><p>一般路径是：<strong><em>/Users/mk/Library/Python/3.7/lib/python/site-packages/matplotlib/mpl-data/fonts/ttf/</em></strong></p>
+<p>将下载好的字体 <strong><em>SimHei</em></strong> 复制到上面的路径</p>
+<h3 id="3、修改-matplotlibrc-配置文件"><a href="#3、修改-matplotlibrc-配置文件" class="headerlink" title="3、修改 matplotlibrc 配置文件"></a>3、修改 matplotlibrc 配置文件</h3><p>matplotlibrc 的路径就是2.2种获取的路径</p>
+<h4 id="3-1-打开-font-family"><a href="#3-1-打开-font-family" class="headerlink" title="3.1 打开 font.family"></a>3.1 打开 font.family</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## The font.size property is the default font size for text, given in pts.</span></span><br><span class="line"><span class="comment">## 10 pt is the standard value.</span></span><br><span class="line"></span><br><span class="line">font.family         : sans-serif</span><br><span class="line"><span class="comment">#font.style          : normal</span></span><br><span class="line"><span class="comment">#font.variant        : normal</span></span><br><span class="line"><span class="comment">#font.weight         : normal</span></span><br><span class="line"><span class="comment">#font.stretch        : normal</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-打开-font-serif-和-font-sans-serif-并添加-SimHei"><a href="#3-2-打开-font-serif-和-font-sans-serif-并添加-SimHei" class="headerlink" title="3.2 打开 font.serif 和 font.sans-serif 并添加 SimHei"></a>3.2 打开 font.serif 和 font.sans-serif 并添加 SimHei</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## small, medium, large, x-large, xx-large, larger, or smaller</span></span><br><span class="line"><span class="comment">#font.size           : 10.0</span></span><br><span class="line">font.serif          : SimHei, DejaVu Serif, Bitstream Vera Serif, Computer Modern Roman, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif</span><br><span class="line">font.sans-serif     : SimHei, DejaVu Sans, Bitstream Vera Sans, Computer Modern Sans Serif, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif</span><br><span class="line"><span class="comment">#font.cursive        : Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, cursive</span></span><br><span class="line"><span class="comment">#font.fantasy        : Comic Sans MS, Chicago, Charcoal, ImpactWestern, Humor Sans, xkcd, fantasy</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-将-axes-unicode-minus-的值-True改成False"><a href="#3-3-将-axes-unicode-minus-的值-True改成False" class="headerlink" title="3.3 将 axes.unicode_minus 的值 True改成False"></a>3.3 将 axes.unicode_minus 的值 True改成False</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#axes.spines.bottom : True</span></span><br><span class="line"><span class="comment">#axes.spines.top    : True</span></span><br><span class="line"><span class="comment">#axes.spines.right  : True</span></span><br><span class="line">axes.unicode_minus  : <span class="literal">False</span>    <span class="comment">## use unicode for the minus symbol</span></span><br><span class="line">                               <span class="comment">## rather than hyphen.  See</span></span><br><span class="line">                               <span class="comment">## http://en.wikipedia.org/wiki/Plus_and_minus_signs#Character_codes</span></span><br><span class="line"><span class="comment">#axes.prop_cycle    : cycler('color', ['1f77b4', 'ff7f0e', '2ca02c', 'd62728', '9467bd', '8c564b', 'e377c2', '7f7f7f', 'bcbd22', '17becf'])</span></span><br><span class="line">                      <span class="comment">## color cycle for plot lines  as list of string</span></span><br><span class="line">                      <span class="comment">## colorspecs: single letter, long name, or web-style hex</span></span><br><span class="line">					  <span class="comment">## Note the use of string escapes here ('1f77b4', instead of 1f77b4)</span></span><br><span class="line">                      <span class="comment">## as opposed to the rest of this file.</span></span><br><span class="line"><span class="comment">#axes.autolimit_mode : data ## How to scale axes limits to the data.</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4、删除缓存文件"><a href="#4、删除缓存文件" class="headerlink" title="4、删除缓存文件"></a>4、删除缓存文件</h3><p>删除 <strong><em>/Users/mk/.matplotlib</em></strong> 文件夹下的 <strong><em>fontlist-v310.json</em></strong> 和 <strong><em>tex.cache</em></strong></p>
+<h3 id="5、重新运行python"><a href="#5、重新运行python" class="headerlink" title="5、重新运行python"></a>5、重新运行python</h3><p>备注：文中路径中 <strong><em>/mk/</em></strong> 为笔者电脑用户名，请根据实际情况修改。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://github.com/monetking" target="_blank">Monetking</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/04/20/%E6%9B%B4%E6%96%B0node%E7%89%88%E6%9C%AC%E3%80%90Mac%E7%89%88%E3%80%91/" class="pre-post btn btn-default" title='更新node版本【Mac版】'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            更新node版本【Mac版】</span>
+    </a>
+    
+    
+    <a href="/2019/09/27/Curl443ConnectionRefused/" class="next-post btn btn-default" title='curl 常见故障问题'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            curl 常见故障问题</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#现象"><span class="toc-text">现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#报错类型"><span class="toc-text">报错类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-text">解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、下载-SimHei-字体"><span class="toc-text">1、下载 SimHei 字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、查找字体存在的目录"><span class="toc-text">2、查找字体存在的目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-进入Python3环境"><span class="toc-text">2.1 进入Python3环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-import-matplotlib库并打印路径"><span class="toc-text">2.2 import matplotlib库并打印路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-获取字体存放路径"><span class="toc-text">2.3 获取字体存放路径</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、修改-matplotlibrc-配置文件"><span class="toc-text">3、修改 matplotlibrc 配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-打开-font-family"><span class="toc-text">3.1 打开 font.family</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-打开-font-serif-和-font-sans-serif-并添加-SimHei"><span class="toc-text">3.2 打开 font.serif 和 font.sans-serif 并添加 SimHei</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-将-axes-unicode-minus-的值-True改成False"><span class="toc-text">3.3 将 axes.unicode_minus 的值 True改成False</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、删除缓存文件"><span class="toc-text">4、删除缓存文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、重新运行python"><span class="toc-text">5、重新运行python</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
