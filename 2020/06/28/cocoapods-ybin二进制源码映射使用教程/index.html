@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Monetking">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="iOS二进制源码切换 二进制源码映射" />
+
+
+<meta name="description" content="
+一、背景&emsp;&emsp;随着项目业务的不断迭代和新增，每个业务线负责不同的功能模块，组件化势必是需要进行的工作。业界内，无论是哪种组件化方案，目的是一样的，分离业务和功能。
+&emsp..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    cocoapods-ybin二进制源码映射使用教程 |
+    
+    Monetking
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Monetking" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66480376" charset="UTF-8"></script>
+
+    
+
+</head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Monetking'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        Monetking</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/移动端/"><i class="fa "></i>
+                                移动端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/音视频/"><i class="fa "></i>
+                                音视频</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/综合/"><i class="fa "></i>
+                                综合</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/故障总结/"><i class="fa "></i>
+                                故障总结</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="cocoapods-ybin二进制源码映射使用教程">
+            
+            cocoapods-ybin二进制源码映射使用教程
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/iOS%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%BA%90%E7%A0%81%E5%88%87%E6%8D%A2-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%BA%90%E7%A0%81%E6%98%A0%E5%B0%84/" rel="tag">iOS二进制源码切换 二进制源码映射</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/06/28</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><a href="https://badge.fury.io/rb/cocoapods-ybin" target="_blank" rel="noopener"><img src="https://badge.fury.io/rb/cocoapods-ybin.svg" alt="Gem Version"></a></p>
+<h1 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h1><p>&emsp;&emsp;随着项目业务的不断迭代和新增，每个业务线负责不同的功能模块，组件化势必是需要进行的工作。业界内，无论是哪种组件化方案，目的是一样的，分离业务和功能。</p>
+<p>&emsp;&emsp;组件化虽好，但是组件化只是将不同的业务分离或者不同的功能分离和分层，实际上还是在一个代码池里每次 <strong>build</strong> 需要进行编译、汇编、链接等过程。每次编译的占用的时间还是挺奢侈的，在编译速度上并没有提升。<strong>pod install</strong> 来回切换二进制和源码也更是一件可行不可取的开发模式。</p>
+<p>&emsp;&emsp;<strong>cocoapods-ybin</strong> 解决二进制和源码之间的映射问题，无需来回切换源码，实现二进制断点可进入源码进行调试。实现原理是简单的，但区别于 <strong>Android</strong> 里的 <strong>aar</strong> 或 <strong>jar</strong> 内的 Class 文件。</p>
+<p><strong>cocoapods-ybin</strong> 满足以下几个诉求考虑实现：</p>
+<ul>
+<li><strong>小而好用、低成本接入</strong></li>
+<li><strong>与二进制库的制作和存储无关，只需二进制库和源码存储位置即可映射</strong></li>
+<li><strong>同时支持多项目并行开发</strong></li>
+<li><strong>只存储一份源码</strong></li>
+<li><strong>无需频繁的 clone 代码</strong></li>
+</ul>
+<h1 id="二、先睹为快"><a href="#二、先睹为快" class="headerlink" title="二、先睹为快"></a>二、先睹为快</h1><p><strong>cocoapods-ybin-demo</strong> 示例效果视频，<a href="https://github.com/monetking/cocoapods-ybin-demo.git" target="_blank" rel="noopener">示例代码地址</a></p>
+<video id="video" width="756" height="426" controls="" preload="none" poster="https://img.58cdn.com.cn/dist/rn/course/ybin_demo_cover.png">
+      <source id="mp4" src="https://img.58cdn.com.cn/dist/rn/course/ybin_demo_small.mp4" type="video/mp4">
+      </video>
+
+<h1 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h1><h2 id="3-1-直接安装"><a href="#3-1-直接安装" class="headerlink" title="3.1 直接安装"></a>3.1 直接安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gem install cocoapods-ybin</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gif1jwrswjj30v608owfm.jpg" alt=""></p>
+<h2 id="3-2-使用-Gemfile-管理-pod-版本"><a href="#3-2-使用-Gemfile-管理-pod-版本" class="headerlink" title="3.2 使用 Gemfile 管理 pod 版本"></a>3.2 使用 Gemfile 管理 pod 版本</h2><p>添加 <strong>cocoapods-ybin</strong> 到 Gemfile 文件</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="string">'cocoapods-ybin'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-安装校验"><a href="#3-3-安装校验" class="headerlink" title="3.3 安装校验"></a>3.3 安装校验</h2><p>执行命令 <strong>pod –help</strong> 查看当前 pod 版本 <strong>ybin</strong> 是否安装成功。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gif1oynpxyj312e0u07bm.jpg" alt=""></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gif1zrynuhj30s60f8gn8.jpg" alt=""></p>
+<h1 id="四、使用教程"><a href="#四、使用教程" class="headerlink" title="四、使用教程"></a>四、使用教程</h1><p>打开示例项目 <strong>ocoapods-ybin-demo</strong> <a href="https://github.com/monetking/cocoapods-ybin-demo.git" target="_blank" rel="noopener">示例代码</a> 的 Podfile 目录。示例项目使用了 <strong>Bundler</strong> 对 pod 的版本进行了控制，实际项目根据所需选择是否采用，与本插件无关联，请酌情选择。</p>
+<h2 id="4-1-执行二进制和源码映射指令"><a href="#4-1-执行二进制和源码映射指令" class="headerlink" title="4.1 执行二进制和源码映射指令"></a>4.1 执行二进制和源码映射指令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod ybin link 二进制库名称</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gils0jepqyj30ll0e8wgq.jpg" alt=""></p>
+<h2 id="4-2-查看已映射列表"><a href="#4-2-查看已映射列表" class="headerlink" title="4.2 查看已映射列表"></a>4.2 查看已映射列表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod ybin link --list</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gif21izjaxj30xq09k0uh.jpg" alt=""></p>
+<h2 id="4-3-删除某个或多个源码映射"><a href="#4-3-删除某个或多个源码映射" class="headerlink" title="4.3 删除某个或多个源码映射"></a>4.3 删除某个或多个源码映射</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod ybin link --remove 二进制库名称1 二进制库名称2</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gif22c9z9gj313a0dewgy.jpg" alt=""></p>
+<h2 id="4-4-删除所有源码映射"><a href="#4-4-删除所有源码映射" class="headerlink" title="4.4 删除所有源码映射"></a>4.4 删除所有源码映射</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod ybin link --remove-all</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gif23vf5mzj30xq0fadhy.jpg" alt=""></p>
+<h2 id="4-5-查询项目使用-Pod-管理的版本"><a href="#4-5-查询项目使用-Pod-管理的版本" class="headerlink" title="4.5 查询项目使用 Pod 管理的版本"></a>4.5 查询项目使用 Pod 管理的版本</h2><p>查询项目通过Pod管理的组件库版本号，一般都是 cat Podfile.lock 文件，目视解析版本及依赖版本。阅读起来非常不友好，使用插件 <strong>–lib-version</strong> 扩展即可快速查看 Pod 管理的版本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod ybin link --lib-version</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gif25icgfjj30xq0cmtay.jpg" alt=""></p>
+<h1 id="五、期待"><a href="#五、期待" class="headerlink" title="五、期待"></a>五、期待</h1><ul>
+<li>如果在使用过程中遇到Bug，希望您能Issues我，谢谢(或者尝试下载使用最新版本看看Bug修复没有)</li>
+<li>如果在使用过程中发现功能不够用，希望你能Issues我，非常想为这个工具增加更多好用的功能，谢谢</li>
+<li>如果你想为cocoapods-ybin输出代码，请拼命Pull Requests我</li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://github.com/monetking" target="_blank">Monetking</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2020/06/25/iOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="next-post btn btn-default" title='iOS内存管理'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            iOS内存管理</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、背景"><span class="toc-text">一、背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、先睹为快"><span class="toc-text">二、先睹为快</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、安装"><span class="toc-text">三、安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-直接安装"><span class="toc-text">3.1 直接安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-使用-Gemfile-管理-pod-版本"><span class="toc-text">3.2 使用 Gemfile 管理 pod 版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-安装校验"><span class="toc-text">3.3 安装校验</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、使用教程"><span class="toc-text">四、使用教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-执行二进制和源码映射指令"><span class="toc-text">4.1 执行二进制和源码映射指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-查看已映射列表"><span class="toc-text">4.2 查看已映射列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-删除某个或多个源码映射"><span class="toc-text">4.3 删除某个或多个源码映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-删除所有源码映射"><span class="toc-text">4.4 删除所有源码映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-查询项目使用-Pod-管理的版本"><span class="toc-text">4.5 查询项目使用 Pod 管理的版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、期待"><span class="toc-text">五、期待</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
